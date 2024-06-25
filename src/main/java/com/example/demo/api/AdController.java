@@ -61,7 +61,7 @@ public class AdController {
      * @param newAdData the new AdDataTable to be saved.
      * @return ResponseEntity with the saved AdDataTable or 400 Bad Request.
      */
-    @PostMapping("/api/v1/post-page-stats")
+    @PostMapping("/api/v1/page-stats")
     public ResponseEntity<AdDataTable> postPageData(@RequestBody AdDataTable newAdData) {
 
         AdDataTable savedAdData;
@@ -87,7 +87,7 @@ public class AdController {
      * @param updatedAdData the updated AdDataTable data.
      * @return ResponseEntity with the updated AdDataTable or 404 Not Found.
      */
-    @PutMapping("api/v1/update-page-stats/{id}")
+    @PutMapping("api/v1/page-stats/{id}")
     public ResponseEntity<AdDataTable> updatePageData(@PathVariable Integer id, @RequestBody AdDataTable updatedAdData) {
         Optional<AdDataTable> existingAdDataOptional = adMetricsRepository.findById(id);
 
@@ -115,7 +115,7 @@ public class AdController {
      * @param id the ID of the AdDataTable to be deleted.
      * @return ResponseEntity with 204 No Content or 404 Not Found.
      */
-    @DeleteMapping("api/v1/delete-page-stats/{id}")
+    @DeleteMapping("api/v1/page-stats/{id}")
     public ResponseEntity<Void> deletePageData(@PathVariable Integer id) {
         if (adMetricsRepository.existsById(id)) {
             adMetricsRepository.deleteById(id);
